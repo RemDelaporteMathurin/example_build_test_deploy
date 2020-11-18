@@ -33,7 +33,8 @@ jobs:
 
       - run:
           name: run utils tests
-          command:
+          command: |
+            ls
             pytest test.py
 
 workflows:
