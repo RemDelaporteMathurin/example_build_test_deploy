@@ -29,6 +29,7 @@ jobs:
       IMAGE_NAME: remdelaportemathurin/test
     docker:
       - image: $IMAGE_NAME:temp
+    working_directory: ../
     steps:
 
       - run:
