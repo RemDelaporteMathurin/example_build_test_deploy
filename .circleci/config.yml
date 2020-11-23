@@ -23,6 +23,7 @@ jobs:
       - run:
           name: Publish Docker Image to Docker Hub
           command: |
+            docker login
             docker push $IMAGE_NAME:temp
 
   test:
