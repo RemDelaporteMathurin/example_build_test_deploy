@@ -10,9 +10,6 @@ jobs:
       IMAGE_NAME: remdelaportemathurin/test
     docker:
       - image: circleci/buildpack-deps:stretch
-        auth:
-          username: $DOCKERHUB_USERNAME
-          password: $DOCKERHUB_PASS
     steps:
       - checkout
       - setup_remote_docker
@@ -23,7 +20,7 @@ jobs:
       - run:
           name: Publish Docker Image to Docker Hub
           command: |
-            docker login
+            echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
             docker push $IMAGE_NAME:temp
 
   test:
